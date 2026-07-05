@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nicholas Capodice — Violinist for Weddings & Events</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F2E9D6;
+    --cream-card:#FBF5E8;
+    --walnut:#2B1F16;
+    --walnut-soft:#4A3A2C;
+    --sienna:#B5622B;
+    --sienna-deep:#8F4A1F;
+    --gold:#D4A843;
+    --dusty-blue:#4C6B82;
+    --max-w:1180px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Nunito Sans', sans-serif;
+    color:var(--walnut);
+    background:var(--ivory);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.display{
+    font-family:'Playfair Display', serif;
+    font-weight:600;
+    color:var(--walnut);
+    line-height:1.15;
+  }
+
+  a{color:var(--sienna-deep); text-decoration:none;}
+  a:focus-visible, button:focus-visible{outline:3px solid var(--dusty-blue); outline-offset:3px;}
+
+  img{max-width:100%; display:block;}
+
+  .wrap{max-width:var(--max-w); margin:0 auto; padding:0 24px;}
+
+  /* Bow-stroke divider — signature element */
+  .bow{
+    width:100%;
+    height:28px;
+    margin:0 auto;
+    display:block;
+  }
+  .bow path{
+    fill:none;
+    stroke-linecap:round;
+  }
+
+  /* NAV */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(242,233,214,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(43,31,22,0.08);
+  }
+  .nav-inner{
+    max-width:var(--max-w); margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .wordmark{
+    font-family:'Playfair Display', serif;
+    font-weight:700; font-size:1.15rem; letter-spacing:0.02em;
+    color:var(--walnut);
+  }
+  .wordmark span{color:var(--sienna-deep); font-style:italic; font-weight:500;}
+  nav.links{display:flex; gap:28px; align-items:center;}
+  nav.links a{
+    font-size:0.92rem; font-weight:600; color:var(--walnut-soft);
+    letter-spacing:0.01em;
+  }
+  nav.links a:hover{color:var(--sienna-deep);}
+  .nav-cta{
+    background:var(--sienna-deep); color:var(--ivory)!important;
+    padding:9px 18px; border-radius:3px; font-size:0.88rem!important;
+  }
+  .nav-cta:hover{background:var(--walnut);}
+  @media (max-width:720px){ nav.links a:not(.nav-cta){display:none;} }
+
+  /* HERO */
+  .hero{
+    position:relative;
+    min-height:92vh;
+    display:flex; align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    object-position:60% 30%;
+  }
+  .hero::after{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(43,31,22,0.05) 0%, rgba(43,31,22,0.15) 45%, rgba(24,16,10,0.88) 100%);
+  }
+  .hero-content{
+    position:relative; z-index:2; width:100%;
+    padding:0 24px 68px; max-width:var(--max-w); margin:0 auto;
+    color:var(--ivory);
+    animation: rise 0.9s ease-out both;
+  }
+  @keyframes rise{ from{opacity:0; transform:translateY(18px);} to{opacity:1; transform:translateY(0);} }
+  .eyebrow{
+    font-size:0.82rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--gold); font-weight:700; margin-bottom:14px;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 6vw, 4.1rem);
+    color:#fff; max-width:14ch;
+  }
+  .hero p.sub{
+    margin-top:18px; max-width:46ch; font-size:1.08rem; color:#EFE3CC;
+  }
+  .hero-ctas{margin-top:32px; display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:14px 28px; border-radius:3px;
+    font-weight:700; font-size:0.95rem; letter-spacing:0.01em;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--sienna); color:#fff!important;}
+  .btn-primary:hover{background:var(--gold); color:var(--walnut)!important; transform:translateY(-2px);}
+  .btn-ghost{border:1.5px solid rgba(242,233,214,0.55); color:var(--ivory)!important;}
+  .btn-ghost:hover{border-color:var(--ivory); background:rgba(242,233,214,0.1);}
+
+  /* SECTION generic */
+  section{padding:88px 0;}
+  .section-head{max-width:640px; margin-bottom:48px;}
+  .section-head .eyebrow{color:var(--sienna-deep);}
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem);}
+
+  /* INTRO / QUOTE */
+  .intro{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:56px; align-items:center;
+  }
+  .intro img{border-radius:4px; box-shadow:0 18px 40px -20px rgba(43,31,22,0.45);}
+  .intro blockquote{
+    font-family:'Playfair Display', serif; font-style:italic; font-weight:500;
+    font-size:clamp(1.25rem,2vw,1.55rem); color:var(--walnut-soft);
+    border-left:3px solid var(--gold); padding-left:24px; margin-bottom:22px;
+  }
+  .intro p.attrib{font-size:0.9rem; font-weight:700; color:var(--sienna-deep); letter-spacing:0.02em;}
+  @media (max-width:800px){ .intro{grid-template-columns:1fr;} }
+
+  /* HIGHLIGHTS */
+  .highlights-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:start;
+  }
+  .credit-list{list-style:none;}
+  .credit-list li{
+    display:grid; grid-template-columns:auto 1fr; gap:18px;
+    padding:20px 0; border-bottom:1px solid rgba(43,31,22,0.1);
+  }
+  .credit-list li:first-child{padding-top:0;}
+  .credit-mark{
+    width:34px; height:34px; flex-shrink:0;
+  }
+  .credit-list h3{font-size:1.08rem; margin-bottom:4px;}
+  .credit-list p{font-size:0.95rem; color:var(--walnut-soft);}
+  .highlight-photos{display:grid; gap:16px;}
+  .highlight-photos img{border-radius:4px; box-shadow:0 14px 30px -18px rgba(43,31,22,0.4);}
+  @media (max-width:800px){ .highlights-grid{grid-template-columns:1fr;} }
+
+  /* GALLERY */
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+  }
+  .gallery-grid img{
+    width:100%; height:340px; object-fit:cover; border-radius:4px;
+    transition:transform .35s ease;
+  }
+  .gallery-grid a{display:block; overflow:hidden; border-radius:4px;}
+  .gallery-grid a:hover img{transform:scale(1.05);}
+  @media (max-width:800px){ .gallery-grid{grid-template-columns:1fr 1fr;} .gallery-grid img{height:220px;} }
+  @media (max-width:520px){ .gallery-grid{grid-template-columns:1fr;} }
+
+  /* VIDEO placeholder */
+  .video-panel{
+    background:var(--walnut); color:var(--ivory);
+    border-radius:6px; padding:56px 40px; text-align:center;
+  }
+  .video-panel h2{color:var(--ivory);}
+  .video-icon{width:46px; height:46px; margin:0 auto 20px; opacity:0.85;}
+  .video-panel p{max-width:44ch; margin:14px auto 0; color:#D9CAAE; font-size:0.98rem;}
+
+  /* SERVICES */
+  .services-grid{display:grid; grid-template-columns:1.15fr 0.85fr; gap:28px;}
+  .service-card{
+    background:var(--cream-card); border-radius:6px; padding:40px;
+    border:1px solid rgba(43,31,22,0.08);
+  }
+  .service-card.featured{
+    background:linear-gradient(155deg, var(--sienna) 0%, var(--sienna-deep) 100%);
+    color:#fff;
+  }
+  .service-card.featured h3, .service-card.featured .tag{color:#fff;}
+  .service-card .tag{
+    font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:700;
+    color:var(--sienna-deep); margin-bottom:10px; display:block;
+  }
+  .service-card h3{font-size:1.5rem; margin-bottom:14px;}
+  .service-card ul{list-style:none; margin-top:18px;}
+  .service-card li{
+    padding:9px 0 9px 26px; position:relative; font-size:0.96rem;
+    border-top:1px solid rgba(0,0,0,0.08);
+  }
+  .service-card.featured li{border-top-color:rgba(255,255,255,0.2);}
+  .service-card li:first-of-type{border-top:none;}
+  .service-card li::before{
+    content:'♪'; position:absolute; left:0; top:9px; color:var(--gold); font-size:0.95rem;
+  }
+  .service-card.featured li::before{color:#F6E3B8;}
+  @media (max-width:800px){ .services-grid{grid-template-columns:1fr;} }
+
+  /* CONTACT */
+  .contact{
+    background:var(--walnut); color:var(--ivory);
+  }
+  .contact .section-head .eyebrow{color:var(--gold);}
+  .contact h2{color:#fff;}
+  .contact-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;
+  }
+  .contact-methods{display:flex; flex-direction:column; gap:22px; margin-top:8px;}
+  .contact-method{display:flex; align-items:center; gap:16px;}
+  .contact-method .ic{
+    width:44px; height:44px; border-radius:50%; background:rgba(212,168,67,0.15);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    color:var(--gold); font-size:1.1rem; font-weight:700;
+  }
+  .contact-method a, .contact-method span{color:var(--ivory); font-size:1.02rem; font-weight:600;}
+  .contact-method a:hover{color:var(--gold);}
+  .contact-note{
+    background:rgba(212,168,67,0.08); border:1px solid rgba(212,168,67,0.25);
+    border-radius:6px; padding:28px; font-size:0.95rem; color:#E9DCBE;
+  }
+  .contact-note strong{color:var(--gold);}
+  @media (max-width:800px){ .contact-grid{grid-template-columns:1fr;} }
+
+  footer{
+    background:var(--walnut); color:#B8A784; text-align:center;
+    padding:26px 24px; font-size:0.85rem; border-top:1px solid rgba(212,168,67,0.15);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .hero-content{animation:none;}
+    .gallery-grid a:hover img{transform:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="wordmark">Nicholas Capodice <span>· Violin</span></div>
+    <nav class="links">
+      <a href="#about">About</a>
+      <a href="#performances">Performances</a>
+      <a href="#services">Services</a>
+      <a href="#contact" class="nav-cta">Book Nicholas</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="images/hero.jpg" alt="Nicholas Capodice playing violin outdoors">
+  <div class="hero-content">
+    <div class="eyebrow">Chicagoland &amp; Beyond</div>
+    <h1>Live violin for your wedding, event, or celebration.</h1>
+    <p class="sub">Suzuki-trained and stage-tested with a touring ensemble across three continents — Nicholas brings a refined, moving sound to your most important moments.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-primary">Check availability</a>
+      <a href="#services" class="btn btn-ghost">Private lessons too →</a>
+    </div>
+  </div>
+</section>
+
+<svg class="bow" viewBox="0 0 1180 28" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0,4 Q 295,26 590,10 T 1180,4" stroke="#B5622B" stroke-width="2"/>
+</svg>
+
+<section id="about">
+  <div class="wrap intro">
+    <img src="images/portrait-smile.jpg" alt="Nicholas Capodice holding his violin, smiling">
+    <div>
+      <blockquote>"What began as scales and sore fingers became a way to share something universal with anyone, from any background."</blockquote>
+      <p class="attrib">— Nicholas, on why he plays</p>
+      <p style="margin-top:20px; color:var(--walnut-soft); font-size:1.02rem;">
+        Nicholas started violin at nine years old through the full Suzuki method and never looked back. Now a member of the Chicago Consort Violin Ensemble and a freshman at Miami University's Farmer School of Business, he brings years of disciplined training and real stage experience to every performance — from intimate ceremonies to formal galas.
+      </p>
+    </div>
+  </div>
+</section>
+
+<svg class="bow" viewBox="0 0 1180 28" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0,22 Q 295,2 590,18 T 1180,22" stroke="#D4A843" stroke-width="2"/>
+</svg>
+
+<section id="performances" style="background:var(--cream-card);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Stage &amp; Credentials</div>
+      <h2>A performer's résumé, not just a hobby.</h2>
+    </div>
+    <div class="highlights-grid">
+      <ul class="credit-list">
+        <li>
+          <svg class="credit-mark" viewBox="0 0 34 34"><circle cx="17" cy="17" r="16" fill="none" stroke="#B5622B" stroke-width="1.5"/><path d="M12 20c0-5 2-9 5-9s5 4 5 9" fill="none" stroke="#B5622B" stroke-width="1.5"/></svg>
+          <div>
+            <h3>Chicago Consort Violin Ensemble</h3>
+            <p>Touring member since 2022 — performances across Chicagoland plus international dates in South Africa, Slovenia, and Croatia.</p>
+          </div>
+        </li>
+        <li>
+          <svg class="credit-mark" viewBox="0 0 34 34"><circle cx="17" cy="17" r="16" fill="none" stroke="#B5622B" stroke-width="1.5"/><path d="M10 17l5 5 9-11" fill="none" stroke="#B5622B" stroke-width="1.5"/></svg>
+          <div>
+            <h3>Soloist, Universal Studios Orlando</h3>
+            <p>Featured soloist for the STARS Performance Program (2022).</p>
+          </div>
+        </li>
+        <li>
+          <svg class="credit-mark" viewBox="0 0 34 34"><circle cx="17" cy="17" r="16" fill="none" stroke="#B5622B" stroke-width="1.5"/><path d="M17 9v8l6 4" fill="none" stroke="#B5622B" stroke-width="1.5"/></svg>
+          <div>
+            <h3>Allegro!! Ensemble</h3>
+            <p>Regular performer across Chicagoland venues.</p>
+          </div>
+        </li>
+        <li>
+          <svg class="credit-mark" viewBox="0 0 34 34"><circle cx="17" cy="17" r="16" fill="none" stroke="#B5622B" stroke-width="1.5"/><path d="M17 8l2.5 5.2 5.7.8-4.1 4 1 5.7-5.1-2.7-5.1 2.7 1-5.7-4.1-4 5.7-.8z" fill="none" stroke="#B5622B" stroke-width="1.5"/></svg>
+          <div>
+            <h3>Awards, District 102 Orchestra</h3>
+            <p>Director's Award (2020, 2022) and Outstanding Prelude Member (2022), Suzuki-trained throughout.</p>
+          </div>
+        </li>
+      </ul>
+      <div class="highlight-photos">
+        <img src="images/ensemble.jpg" alt="Nicholas performing violin on stage with his ensemble">
+        <img src="images/croatia.jpg" alt="Nicholas with his violin on the Adriatic coast in Croatia at sunset">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">In The Moment</div>
+      <h2>On stage, in the street, on the road.</h2>
+    </div>
+    <div class="gallery-grid">
+      <a href="images/busking.jpg" target="_blank" rel="noopener"><img src="images/busking.jpg" alt="Nicholas performing violin outdoors with fellow musicians"></a>
+      <a href="images/studio-playing.jpg" target="_blank" rel="noopener"><img src="images/studio-playing.jpg" alt="Nicholas playing violin, studio portrait"></a>
+      <a href="images/portrait-warm.jpg" target="_blank" rel="noopener"><img src="images/portrait-warm.jpg" alt="Portrait of Nicholas Capodice"></a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="video-panel">
+      <svg class="video-icon" viewBox="0 0 46 46" fill="none"><circle cx="23" cy="23" r="21" stroke="#D4A843" stroke-width="1.5"/><path d="M19 16l12 7-12 7z" fill="#D4A843"/></svg>
+      <h2>Hear him play</h2>
+      <p>Performance clips are being added soon — a short reel is the single best way to convert an inquiry into a booking. This spot is ready for the first one.</p>
+    </div>
+    <!-- To add a clip later, replace the panel above with something like:
+    <video controls poster="images/hero.jpg" style="width:100%;border-radius:6px;">
+      <source src="images/performance-clip.mp4" type="video/mp4">
+    </video>
+    or embed a YouTube video with an <iframe>. -->
+  </div>
+</section>
+
+<section id="services" style="background:var(--cream-card);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How To Book Nicholas</div>
+      <h2>Two ways to bring him into your world.</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card featured">
+        <span class="tag">Most Requested</span>
+        <h3>Event Performances</h3>
+        <p>Live violin for ceremonies, receptions, cocktail hours, and corporate events — solo or paired with other Chicago Consort musicians.</p>
+        <ul>
+          <li>Wedding ceremonies &amp; cocktail hours</li>
+          <li>Corporate &amp; private events</li>
+          <li>Holiday parties &amp; galas</li>
+          <li>Custom song requests available</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <span class="tag">Also Available</span>
+        <h3>Private Lessons</h3>
+        <p>Suzuki-method instruction for beginner through advanced students, taught with the same discipline that built his own playing.</p>
+        <ul>
+          <li>All ages &amp; skill levels</li>
+          <li>In-home or virtual lessons</li>
+          <li>Suzuki method foundation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Get In Touch</div>
+      <h2>Check availability for your date.</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-methods">
+        <div class="contact-method">
+          <span class="ic">@</span>
+          <a href="mailto:superfxbm@icloud.com">superfxbm@icloud.com</a>
+        </div>
+        <div class="contact-method">
+          <span class="ic">☏</span>
+          <a href="tel:+17086164617">(708) 616-4617</a>
+        </div>
+        <div class="contact-method">
+          <span class="ic">◎</span>
+          <span>Based in La Grange Park, IL — serving Chicagoland</span>
+        </div>
+      </div>
+      <div class="contact-note">
+        <strong>Planning an event?</strong> Share your date, location, and how long you'd like live music, and you'll hear back with availability and pricing.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Nicholas Capodice — Violin for Events &amp; Instruction
+</footer>
+
+</body>
+</html>
